@@ -40,12 +40,13 @@ public class updateYourDocument extends HttpServlet {
 		int documentId = Integer.parseInt(id);
 		String nameDocument  = request.getParameter("nameDocument");
 		String major = request.getParameter("major");
+		String category = request.getParameter("category");
 		String semester = request.getParameter("semester");
 		String subject = request.getParameter("subject");
 		String nameTeacher = request.getParameter("nameTeacher");
 		String courseCredit = request.getParameter("courseCredit");
 		int CourseCredit = Integer.parseInt(courseCredit);
-		documentDTO document = new documentDTO(documentId, nameDocument, major, semester, subject, CourseCredit, nameTeacher,  Usersession.getAccountId());
+		documentDTO document = new documentDTO(documentId, nameDocument, major, semester, subject, CourseCredit, nameTeacher,category,  Usersession.getAccountId());
 		if(check.checkSession(Usersession) && dao.updateDocument(document)) {
 			System.out.println("update success");
 			response.sendRedirect(request.getContextPath()+"/yourDocument");

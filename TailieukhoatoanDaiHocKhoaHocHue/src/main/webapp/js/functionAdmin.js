@@ -10,7 +10,7 @@
 	      });
 	  });
  $(function () {
-	    $('input[id=btnDisplayPopup]').click(function () {
+	    $('button[id=btnDisplayPopup]').click(function () {
 	        var title = "Xác Nhận Sửa";
 	        var body = "Bạn có chắc chắn thực hiện chức năng này ?";
 	
@@ -28,7 +28,7 @@
 	        });
 	    });
  $(function () {
-	    $('input[id=btnDelete]').click(function () {
+	    $('button[id=btnDelete]').click(function () {
 	        var title = "Xác Nhận Xóa";
 	        var body = "Bạn có chắc chắn thực hiện chức năng này ?";	
 	        $("#MyPopup1.modal-title").html(title);

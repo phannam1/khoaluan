@@ -2,7 +2,7 @@
  * 
  */
 $(function () {
-      $('input[id=btnDisplayPopup]').click(function () {
+      $('button[id=btnDisplayPopup]').click(function () {
           var title = "Xác Nhận";
           var body = "Bạn có chắc chắn thực hiện chức năng này ?";
 
@@ -23,7 +23,7 @@ $(function () {
       });
   });
 $(function () {
-    $('input[id=btnShowPopup]').click(function () {
+    $('button[id=btnShowPopup]').click(function () {
         var title = "Xác Nhận";
         var body = "Bạn có chắc chắn thực hiện chức năng này ?";
 
@@ -46,11 +46,3 @@ $(function () {
 
 
 
-$(function () {
-    $('input[id=btnSearchDocument]').click(function () {
-    	
-    	  $('form[name=searchInputDocument]').submit();
-          
-    });
-
-});

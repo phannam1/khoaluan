@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.categoryDTO;
 import dto.helpDTO;
 import dto.majorDTO;
 import utils.DBConnector;
@@ -18,6 +19,7 @@ public class majorDAO {
 	final String CREATEMAJOR = "INSERT INTO MAJOR(nameMajor,createdBy,UpdatedBy) VALUES(?,?,?) ";
 	final String UPDATEMAJOR ="UPDATE MAJOR SET nameMajor = ?,UpdatedBy=? WHERE idMajor = ? ";
 	final String DELETEMAJOR ="DELETE FROM MAJOR  WHERE idMajor = ? ";
+	final String SEARCHINPUT = "SELECT * FROM MAJOR  WHERE nameMajor = ? ";
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -95,5 +97,22 @@ public class majorDAO {
 		}
 		return false;
 		
+	}
+	public majorDTO searchInput(String name) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SEARCHINPUT);
+			pr.setString(1, name);
+			ResultSet rs = pr.executeQuery();
+			if(rs!=null) {
+				if(rs.next()) {
+					majorDTO major = new majorDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+					return major;
+				}
+			}
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

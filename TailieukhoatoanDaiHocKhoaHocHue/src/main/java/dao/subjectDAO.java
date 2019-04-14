@@ -18,6 +18,7 @@ public class subjectDAO {
 	final String CREATESUBJECT = "INSERT INTO subject(nameSubject,createdBy,UpdatedBy) VALUES(?,?,?) ";
 	final String UPDATESUBJECT ="UPDATE subject SET nameSubject = ?,UpdatedBy=? WHERE idSubject = ? ";
 	final String DELETESUBJECT ="DELETE FROM subject  WHERE idSubject = ? ";
+	final String SEARCHINPUT = "SELECT * FROM subject  WHERE nameSubject = ? ";
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -95,5 +96,22 @@ public class subjectDAO {
 		}
 		return false;
 		
+	}
+	public subjectDTO searchInput(String name) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SEARCHINPUT);
+			pr.setString(1, name);
+			ResultSet rs = pr.executeQuery();
+			if(rs!=null) {
+				if(rs.next()) {
+					subjectDTO subject = new subjectDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+					return subject;
+				}
+			}
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

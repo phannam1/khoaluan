@@ -45,12 +45,19 @@ public class teacherDTO {
 
 
 
+	
 	public int getIdTeacher() {
 		return idTeacher;
 	}
+
+
+
 	public void setIdTeacher(int idTeacher) {
 		this.idTeacher = idTeacher;
 	}
+
+
+
 	public String getNameTeacher() {
 		return nameTeacher;
 	}

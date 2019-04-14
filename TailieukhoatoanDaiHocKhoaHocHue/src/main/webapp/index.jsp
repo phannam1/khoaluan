@@ -220,12 +220,29 @@
 								</div>
 								<div class="col-md-2">
 									<div class="aa-single-advance-search">
-										<select name="major">
-											<option value="" selected>Ngành học</option>
-											<option value="Toán Học">Toán Học</option>
-											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
+										<input value="${role.idMajor}" 
+											class="form_input" name="major" type="text" list="ide"
+											onchange="myFunction(this.id)" placeholder="Ngành học" />
 
-										</select>
+										<datalist id="ide">
+											<c:forEach items="${listMajor}" var="listMajor">
+												<option value="${listMajor.nameMajor}">${listMajor.nameMajor}</option>
+											</c:forEach>
+										</datalist>
+
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="aa-single-advance-search">
+										<input value="${role.idCategory}" 
+											class="form_input" name="category" type="text" list="cate"
+											onchange="myFunction(this.id)" placeholder="Chuyên ngành" />
+
+										<datalist id="cate">
+											<c:forEach items="${listCategory}" var="listCategory">
+												<option value="${listCategory.nameCategory}">${listCategory.nameCategory}</option>
+											</c:forEach>
+										</datalist>
 									</div>
 								</div>
 								<div class="col-md-2">
@@ -243,17 +260,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-2">
-									<div class="aa-single-advance-search">
-										<select name="subject">
-											<option value="" selected>Chuyên ngành</option>
-											<option value="Xác Suất Thống Kê">Xác Suất Thống Kê</option>
-											<option value="Tối Ưu">Tối Ưu</option>
-											<option value="Ứng Dụng">Ứng Dụng</option>
-
-										</select>
-									</div>
-								</div>
+								
 								<div class="col-md-2">
 									<div class="aa-single-advance-search">
 										<select name="courseCredit">
@@ -265,24 +272,45 @@
 										</select>
 									</div>
 								</div>
-								<div style="display: none" class="aa-single-advance-search">
-									<input type="text" placeholder="Tên giáo viên"
-										name="nameTeacher" value="">
-								</div>
+								
+								
 
 								<div class="col-md-2">
 									<div class="aa-single-advance-search">
 										<input class="aa-search-btn" type="submit" value="Tìm Kiếm">
 									</div>
 								</div>
+								<div class="col-md-2">
+								</div>
+								<div class="col-md-2" style="margin-top: 15px">
+									<div class="aa-single-advance-search">
+										<input value="${role.idSubject}" 
+											class="form_input" name="subject" type="text" list="sub"
+											onchange="myFunction(this.id)" placeholder="Subject" />
+
+										<datalist id="sub">
+											<c:forEach items="${listSubject}" var="listSubject">
+												<option value="${listSubject.nameSubject}">${listSubject.nameSubject}</option>
+											</c:forEach>
+										</datalist>
+									</div>
+								</div>
+								<div class="col-md-2" style="margin-top: 15px">
+									<div class="aa-single-advance-search">
+										<input value="" 
+											class="form_input" name="nameTeacher" type="text" list="teacher"
+											onchange="myFunction(this.id)" placeholder="NameTeacher" />
+
+										<datalist id="teacher">
+											<c:forEach items="${listTeacher}" var="listTeacher">
+												<option value="${listTeacher.nameTeacher}">${listTeacher.nameTeacher}</option>
+											</c:forEach>
+										</datalist>
+									</div>
+								</div>
 							</form>
 						</div>
-						<div class="row1">
-							<div class="col-md-2"></div>
-
-
-							<div class="col-md-2"></div>
-						</div>
+						
 					</div>
 
 				</div>
@@ -357,136 +385,139 @@
 	</section>
 	<!-- Latest property -->
 	<div class="row">
-	<div class="col-sm-8">
-	<div class="row">
-	<section id="aa-latest-property">
-		<div >
-			<div class="aa-latest-property-area">
-				<div class="aa-title">
-					<h2 style="">Tài Liệu Nổi Bật</h2>
-					
+		<div class="col-sm-8">
+			<div class="row">
+				<section id="aa-latest-property">
+					<div>
+						<div class="aa-latest-property-area">
+							<div class="aa-title">
+								<h2 style="">Tài Liệu Nổi Bật</h2>
 
-				</div>
 
-				<div class="aa-latest-properties-content">
+							</div>
 
-					<div >
-						<c:forEach items="${listDocument}" var="document">
-						<div class="col-sm-6">
-							<div id="jar">
-								<div class="content">
-									
-										<article class="aa-properties-item">
-											<a
-												href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"
-												class="aa-properties-item-img"> <img
-												src="${document.linkData}" width="388px" alt="img">
-											</a>
-											<div class="aa-properties-item-content"
-												style="height: 151px;">
+							<div class="aa-latest-properties-content">
 
-												<div class="aa-properties-about" style="height: 105px;">
+								<div>
+									<c:forEach items="${listDocument}" var="document">
+										<div class="col-sm-6">
+											<div id="jar">
+												<div class="content">
 
-													<h3>
+													<article class="aa-properties-item">
 														<a
-															href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">${document.documentName}</a>
-													</h3>
+															href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"
+															class="aa-properties-item-img"> <img
+															src="${document.linkData}" width="388px" alt="img">
+														</a>
+														<div class="aa-properties-item-content"
+															style="height: 151px;">
 
+															<div class="aa-properties-about" style="height: 105px;">
+
+																<h3>
+																	<a
+																		href="<%=request.getContextPath()%>/detailDocument?id=${document.id}">${document.documentName}</a>
+																</h3>
+
+															</div>
+															<div class="aa-properties-detial">
+																<a
+																	href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"><i
+																	class="fa fa-info"></i> Xem chi tiết</a> <span
+																	class="aa-date-tag">Lượt xem : ${document.views}
+																</span>
+															</div>
+
+														</div>
+													</article>
 												</div>
-												<div class="aa-properties-detial">
-													<a
-														href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"><i
-														class="fa fa-info"></i> Xem chi tiết</a> <span
-														class="aa-date-tag">Lượt xem : ${document.views} </span>
+											</div>
+										</div>
+
+									</c:forEach>
+
+								</div>
+
+
+							</div>
+
+
+
+						</div>
+
+					</div>
+				</section>
+				<a style="margin-left: 15px"
+					href="<%=request.getContextPath()%>/document">xem đầy đủ </a>
+			</div>
+		</div>
+		<div class="col-sm-4">
+
+
+			<!-- Latest blog -->
+			<section id="aa-latest-property">
+				<div class="container">
+					<div class="aa-latest-property-area">
+						<div class="aa-title">
+							<h2 style="float: left;">Tin Tuyển Dụng-Sự Kiện</h2>
+							<span></span>
+
+						</div>
+
+						<div class="aa-latest-properties-content">
+							<div class="row">
+
+								<c:forEach items="${listNews}" var="news">
+									<div class="col-sm-12 paged-element">
+										<div id="jar1">
+											<div class="content1">
+												<div class="pagination-example">
+
+
+
+													<article class="aa-properties-item">
+														<a
+															href="<%=request.getContextPath()%>/news?id=${news.newsId}"
+															class="aa-properties-item-img"> <img
+															src="${news.pictureLink }" alt="img">
+														</a>
+														<div class="aa-properties-item-content"
+															style="height: 151px;">
+															<div class="aa-properties-about" style="height: 100px;">
+																<h5>
+																	<a
+																		href="<%=request.getContextPath()%>/news?id=${news.newsId}">${news.title }</a>
+																</h5>
+
+															</div>
+															<div class="aa-properties-detial">
+																<a
+																	href="<%=request.getContextPath()%>/news?id=${news.newsId}"><i
+																	class="fa fa-info"></i> Xem chi tiết</a> <span
+																	class="aa-date-tag">${news.dateTime } </span>
+															</div>
+														</div>
+													</article>
 												</div>
 
 											</div>
-										</article>
-									</div>
-								</div>
-							</div>
-
-						</c:forEach>
-							
-					</div>
-
-
-				</div>
-				
-
-
-			</div>
-			
-		</div>
-	</section>
-	<a style="margin-left: 15px" href="<%=request.getContextPath()%>/document">xem đầy đủ	</a>
-</div>
-</div>
-<div class="col-sm-4">
-
-
-	<!-- Latest blog -->
-	<section id="aa-latest-property">
-		<div class="container">
-			<div class="aa-latest-property-area">
-				<div class="aa-title">
-					<h2 style="float: left;">Tin Tuyển Dụng-Sự Kiện</h2>
-					<span></span>
-
-				</div>
-
-				<div class="aa-latest-properties-content">
-					<div class="row">
-
-						<c:forEach items="${listNews}" var="news">
-						<div class="col-sm-12 paged-element">
-							<div id="jar1">
-								<div class="content1">
-									<div class="pagination-example">
-										
-
-
-											<article class="aa-properties-item">
-												<a
-													href="<%=request.getContextPath()%>/news?id=${news.newsId}"
-													class="aa-properties-item-img"> <img
-													src="${news.pictureLink }" alt="img">
-												</a>
-												<div class="aa-properties-item-content"
-													style="height: 151px;">
-													<div class="aa-properties-about" style="height: 100px;">
-														<h5>
-															<a
-																href="<%=request.getContextPath()%>/news?id=${news.newsId}">${news.title }</a>
-														</h5>
-
-													</div>
-													<div class="aa-properties-detial">
-														<a
-															href="<%=request.getContextPath()%>/news?id=${news.newsId}"><i
-															class="fa fa-info"></i> Xem chi tiết</a> <span
-															class="aa-date-tag">${news.dateTime } </span>
-													</div>
-												</div>
-											</article>
 										</div>
-
 									</div>
-								</div>
+								</c:forEach>
+
 							</div>
-						</c:forEach>
+
+
+						</div>
 
 					</div>
-					
-
 				</div>
-
-			</div>
+			</section>
+			<a style="margin-left: 15px"
+				href="<%=request.getContextPath()%>/event">xem đầy đủ </a>
 		</div>
-	</section>
-	<a style="margin-left: 15px" href="<%=request.getContextPath()%>/event">xem đầy đủ	</a>
 	</div>
-</div>
 
 	<!-- / Latest blog -->
 

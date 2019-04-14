@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.majorDTO;
+import dto.subjectDTO;
 import dto.teacherDTO;
 import utils.DBConnector;
 import utils.HashUtils;
@@ -18,6 +19,7 @@ public class teacherDAO {
 	final String CREATETEACHER = "INSERT INTO teacher(nameTeacher,address,phone,email,createdBy,UpdatedBy) VALUES(?,?,?,?,?,?) ";
 	final String UPDATETEACHER ="UPDATE teacher SET nameTeacher = ?,address = ?,phone = ?,email = ?,UpdatedBy=? WHERE idTeacher = ? ";
 	final String DELETETEACHER ="DELETE FROM teacher  WHERE idTeacher = ? ";
+	final String SEARCHINPUT = "SELECT * FROM teacher  WHERE nameTeacher = ? ";
 	Connection con = null;
 	HashUtils hashUtil = null;
 
@@ -101,5 +103,22 @@ public class teacherDAO {
 		}
 		return false;
 		
+	}
+	public teacherDTO searchInput(String name) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SEARCHINPUT);
+			pr.setString(1, name);
+			ResultSet rs = pr.executeQuery();
+			if(rs!=null) {
+				if(rs.next()) {
+					teacherDTO teacher = new teacherDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9	));
+					return teacher;
+				}
+			}
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

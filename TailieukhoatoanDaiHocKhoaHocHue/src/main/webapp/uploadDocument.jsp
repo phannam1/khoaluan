@@ -4,6 +4,7 @@
 <%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,7 +89,7 @@
 							<div class="row">
 								<div class="col-sm-6">
 								<div class="aa-single-field">
-									<label for="na me" >Tên tài liệu: <span class="required">*</span></label>
+									<label for="name" >Tên tài liệu: <span class="required">*</span></label>
 									<input id="name" type="text" 
 										  name="nameDocument"
 										placeholder="NameDocument" required
@@ -99,12 +100,17 @@
 								<div class="col-sm-6">
 								<div class="aa-single-field">
 									<label> Ngành Học: <span class="required">*</span></label>
-									<div class="aa-single-advance-search" >
-										<select name="major" style="width: 100%; height: 35px;">
-											<option value="Toán Học" >Toán Học</option>
-											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
+									<div class="aa-single-advance-search">
+										<input value="${role.idMajor}" required="required"
+											class="form_input" name="major" type="text" list="ide"
+											onchange="myFunction(this.id)" placeholder="Ngành học" />
 
-										</select>
+										<datalist id="ide">
+											<c:forEach items="${listMajor}" var="listMajor">
+												<option value="${listMajor.nameMajor}">${listMajor.nameMajor}</option>
+											</c:forEach>
+										</datalist>
+
 									</div>
 								</div>
 								</div>
@@ -131,12 +137,14 @@
 								<div class="aa-single-field">
 									<label>Chuyên Ngành: <span class="required">*</span></label>
 									<div class="aa-single-advance-search">
-										<select name="subject" style="width: 100%; height: 35px;">
-										<option value="Xác Suất Thống Kê" selected>Xác Suất Thống Kê</option>
-										<option value="Tối Ưu">Tối Ưu</option>
-										<option value="Ứng Dụng">Ứng Dụng</option>
-
-										</select>
+										<input value="${role.idCategory}" required="required"
+											class="form_input" name="category" type="text" list="cate"
+											onchange="myFunction(this.id)" placeholder="Nhập chuyên ngành" />
+										<datalist id="cate">
+											<c:forEach items="${listCategory}" var="listCategory">
+												<option value="${listCategory.nameCategory}">${listCategory.nameCategory}</option>
+											</c:forEach>
+										</datalist>
 									</div>
 								</div>
 								</div>
@@ -157,24 +165,34 @@
 								</div>
 								<div class="col-sm-6">
 								<div class="aa-single-field">
-									<label>Kiểu dữ liệu: <span class="required">*</span></label>
+									<label>Môn học: <span class="required">*</span></label>
 									<div class="aa-single-advance-search">
-										<select  name="typeData" style="width: 100%; height: 35px;">
-										<option value=".pdf" selected>.pdf</option>
-										<option value=".img">.img</option>
-										<option value=".png">.png</option>
-										
-										</select>
+										<input value="${role.idSubject}" required="required"
+											class="form_input" name="subject" type="text" list="sub"
+											onchange="myFunction(this.id)" placeholder="Nhập môn học" />
+
+										<datalist id="sub">
+											<c:forEach items="${listSubject}" var="listSubject">
+												<option value="${listSubject.nameSubject}">${listSubject.nameSubject}</option>
+											</c:forEach>
+										</datalist>
 									</div>
 								</div>
 								</div>
 								</div>
 								<div class="aa-single-field">
-									<label for="name">Tên Giảng Viên Phụ Trách: <span class="required"></span></label>
-									<input id="name" type="text" 
-										aria-required="true" value="" name="nameTeacher"
-										placeholder="TeacherName"
-										>
+									<label for="name">Tên Giảng Viên : <span class="required">*</span></label>
+									<div class="aa-single-advance-search">
+										<input value="" required="required"
+											class="form_input" name="nameTeacher" type="text" list="teacher"
+											onchange="myFunction(this.id)" placeholder="NameTeacher" />
+
+										<datalist id="teacher">
+											<c:forEach items="${listTeacher}" var="listTeacher">
+												<option value="${listTeacher.nameTeacher}">${listTeacher.nameTeacher}</option>
+											</c:forEach>
+										</datalist>
+									</div>
 									
 								</div>
 								
@@ -185,11 +203,16 @@
 										 <input required="required"   type="file" name="file"
 											multiple >
 									
-									<div class="aa-single-submit">
-									<button style="width: 30%;margin-top: 10px"  id="btnUpload"  type="button" value=""  class="btn btn-info"
+									
+								</div>
+								<div class="aa-single-submit">
+									<button style="width: 30%;margin-top: 10px"  id="btnUpload"  value="UPLOAD"  class="btn btn-info"
 										>UPLOAD</button>
 								</div>
-								</div>
+							</form>
+							<form action="#">
+							
+								
 							</form>
 						</div>
 					</div>

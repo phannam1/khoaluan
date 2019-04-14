@@ -246,18 +246,25 @@
 						<!-- Start Single properties sidebar -->
 						<div class="aa-properties-single-sidebar">
 							<h3 style="color: #59abe3;">Tìm Kiếm Tài Liệu</h3>
+							 
 							<form action="searchDetailDocument" method="post">
 								<div class="aa-single-advance-search">
-									<input id="taikhoan" type="text" placeholder="Tên Tài Liệu" name="nameDocument" value="">
+									<input required="required" id="taikhoan" type="text" placeholder="Tên Tài Liệu" name="nameDocument" value="">
 								</div>
-								<div class="aa-single-advance-search">
-									<select name="major" >
-											<option value="" selected>Ngành học</option>
-											<option value="Toán Học" >Toán Học</option>
-											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
+								
+									<div class="aa-single-advance-search">
+										<input value="${role.idMajor}" 
+											class="form_input" name="major" type="text" list="ide"
+											onchange="myFunction(this.id)" placeholder="Ngành học" />
 
-										</select>
-								</div>
+										<datalist id="ide">
+											<c:forEach items="${listMajor}" var="listMajor">
+												<option value="${listMajor.nameMajor}">${listMajor.nameMajor}</option>
+											</c:forEach>
+										</datalist>
+
+									</div>
+								
 								<div class="aa-single-advance-search">
 									<select name="semester">
 									<option value="" selected>Kỳ học</option>
@@ -272,15 +279,27 @@
 										</select>
 								</div>
 								<div class="aa-single-advance-search">
-									<select name="subject" >
-									<option value="" selected>Chuyên ngành</option>
-										<option value="Xác Suất Thống Kê" >Xác Suất Thống Kê</option>
-										<option value="Tối Ưu">Tối Ưu</option>
-										<option value="Ứng Dụng">Ứng Dụng</option>
+										<input value="${role.idCategory}" 
+											class="form_input" name="category" type="text" list="cate"
+											onchange="myFunction(this.id)" placeholder="Chuyên ngành" />
 
-										</select>
-								</div>
+										<datalist id="cate">
+											<c:forEach items="${listCategory}" var="listCategory">
+												<option value="${listCategory.nameCategory}">${listCategory.nameCategory}</option>
+											</c:forEach>
+										</datalist>
+									</div>
+<div class="aa-single-advance-search">
+										<input value="${role.idSubject}" 
+											class="form_input" name="subject" type="text" list="sub"
+											onchange="myFunction(this.id)" placeholder="Môn học" />
 
+										<datalist id="sub">
+											<c:forEach items="${listSubject}" var="listSubject">
+												<option value="${listSubject.nameSubject}">${listSubject.nameSubject}</option>
+											</c:forEach>
+										</datalist>
+									</div>
 								<div class="aa-single-advance-search">
 									<select name="courseCredit" >
 									<option value="0" selected>Số tín chỉ</option>
@@ -291,8 +310,16 @@
 										</select>
 								</div>
 								<div class="aa-single-advance-search">
-									<input type="text" placeholder="Tên giáo viên" name="nameTeacher" value="">
-								</div>
+										<input value="" 
+											class="form_input" name="nameTeacher" type="text" list="teacher"
+											onchange="myFunction(this.id)" placeholder="NameTeacher" />
+
+										<datalist id="teacher">
+											<c:forEach items="${listTeacher}" var="listTeacher">
+												<option value="${listTeacher.nameTeacher}">${listTeacher.nameTeacher}</option>
+											</c:forEach>
+										</datalist>
+									</div>
 
 								<div class="aa-single-advance-search">
 									<input class="aa-search-btn" type="submit" value="Tìm Kiếm">

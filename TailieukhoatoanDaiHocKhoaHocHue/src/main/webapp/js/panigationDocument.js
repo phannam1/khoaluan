@@ -1,6 +1,6 @@
 	$(document).ready(function() {
 	    $('#dataTable0').DataTable( {
-	    	"order": [[10, 'desc']],
+	    	"order": [[12, 'desc']],
 	    } );
 	} );
 	

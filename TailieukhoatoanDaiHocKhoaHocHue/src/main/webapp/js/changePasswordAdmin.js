@@ -2,7 +2,7 @@
  * 
  */
  $(function () {
-	    $('input[id=btnDisplayPopup]').click(function () {
+	    $('button[id=btnDisplayPopup]').click(function () {
 	        var title = "Xác Nhận";
 	        var body = "Bạn có chắc chắn thực hiện chức năng này ?";
 	

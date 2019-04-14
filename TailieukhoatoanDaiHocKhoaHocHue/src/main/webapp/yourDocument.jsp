@@ -66,12 +66,15 @@
 						<div class="col-sm-6" >
 							<div class="col-sm-4" ><label>Ngành học:</label> </div>
 							<div class="col-sm-8" >
-							<select class="form_input" name="major" id="major">
-											<option value="" selected>Ngành học</option>
-											<option value="Toán Học">Toán Học</option>
-											<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
+							<input id="major" value="${role.idMajor}" required="required"
+									class="form_input" name="major" type="text" list="ide"
+									onchange="myFunction(this.id)" placeholder="Ngành học" />
 
-										</select>
+								<datalist id="ide">
+									<c:forEach items="${listMajor}" var="listMajor">
+										<option value="${listMajor.nameMajor}">${listMajor.nameMajor}</option>
+									</c:forEach>
+								</datalist>
 							</div>
 						</div>
 					</div>
@@ -92,19 +95,47 @@
 					</div>
 					<div class="col-sm-6" >
 					<div class="col-sm-4" >
-						<label>Chuyên ngành:</label></div><div class="col-sm-8" > <select class="form_input" name="subject" id="subject">
-											<option value="" selected>Chuyên ngành</option>
-											<option value="Xác Suất Thống Kê">Xác Suất Thống Kê</option>
-											<option value="Tối Ưu">Tối Ưu</option>
-											<option value="Ứng Dụng">Ứng Dụng</option>
+						<label>Chuyên ngành:</label></div><div class="col-sm-8" > <input id="category" value="${role.idCategory}"
+									required="required" class="form_input" name="category"
+									type="text" list="cate" onchange="myFunction(this.id)"
+									placeholder="Nhập chuyên ngành" />
 
-										</select></div>
+								<datalist id="cate">
+									<c:forEach items="${listCategory}" var="listCategory">
+										<option value="${listCategory.nameCategory}">${listCategory.nameCategory}</option>
+									</c:forEach>
+								</datalist></div>
 					</div>
 					</div>
 						<div class="row">
 					<div class="col-sm-6" >
-						<div class="col-sm-4" ><label>Tên giáo viên :</label></div><div class="col-sm-8" > <input id="nameTeacher" type="text" class="form_input"
-							name="nameTeacher" value=""  /></div>
+						<div class="col-sm-4" ><label>Tên giáo viên :</label></div><div class="col-sm-8" > <input id="nameTeacher" value="" required="required"
+									class="form_input" name="nameTeacher" type="text"
+									list="teacher" onchange="myFunction(this.id)"
+									placeholder="NameTeacher" />
+
+								<datalist id="teacher">
+									<c:forEach items="${listTeacher}" var="listTeacher">
+										<option value="${listTeacher.nameTeacher}">${listTeacher.nameTeacher}</option>
+									</c:forEach>
+								</datalist></div>
+					</div>
+					<div class="col-sm-6" >				
+						<div class="col-sm-4" ><label>Môn học:</label></div><div  class="col-sm-8" > <input id="subject" value="${role.idSubject}"
+									required="required" class="form_input" name="subject"
+									type="text" list="sub" onchange="myFunction(this.id)"
+									placeholder="Nhập môn học" />
+
+								<datalist id="sub">
+									<c:forEach items="${listSubject}" var="listSubject">
+										<option value="${listSubject.nameSubject}">${listSubject.nameSubject}</option>
+									</c:forEach>
+								</datalist></div>
+					</div>
+					</div>
+					<div class="row">
+					<div class="col-sm-6" >
+						
 					</div>
 					<div class="col-sm-6" >				
 						<div class="col-sm-4" ><label>Đã phê duyệt:</label></div><div  class="col-sm-8" > <input id="isShow" class="isActive"
@@ -147,11 +178,11 @@
 					</div>
 				</div>
 	
-				<div class="row" id="btnUpdate">
+				<div class="row" id="btnUpdate"style="display: none;">
 					<div class="col-sm-6" ></div>
 					<div class="col-sm-6">
 					<div class="col-sm-4" ></div>
-						<div class="col-sm-8"><input  type="button" id="btnDisplayPopup" class="form_input" style="width:100px;"
+						<div class="col-sm-8"><input   type="button" id="btnDisplayPopup" class="form_input" style="width:100px;"
 						value="Chỉnh Sửa"  /></div>
 					</div>
 						
@@ -179,6 +210,7 @@
 								<th>Ngành học</th>
 								<th>Kỳ học</th>
 								<th>Chuyên ngành</th>
+								<th>Môn học</th>
 								<th>Số tín chỉ</th>
 								<th>Tên giáo viên phụ trách</th>							
 								<th>Đã phê duyệt</th>
@@ -193,6 +225,7 @@
 								<th>Ngành học</th>
 								<th>Kỳ học</th>
 								<th>Chuyên ngành</th>
+								<th>Môn học</th>
 								<th>Số tín chỉ</th>
 								<th>Tên giáo viên phụ trách</th>							
 								<th>Đã phê duyệt</th>
@@ -207,11 +240,12 @@
 						<tbody>
 					
 							<c:forEach items="${listDocument}" var="document">
-								<tr class="odd" onclick="getValueDocument('${document.id}','${document.documentName}','${document.major}','${document.semester}','${document.subject}','${document.courseCredit}','${document.nameTeacher}','${document.isShow }','${document.lastModifiedUserName}','${document.creationDate}','${document.lastModifiedDate}')">
+								<tr class="odd" onclick="getValueDocument('${document.id}','${document.documentName}','${document.major}','${document.semester}','${document.category}','${document.subject}','${document.courseCredit}','${document.nameTeacher}','${document.isShow }','${document.lastModifiedUserName}','${document.creationDate}','${document.lastModifiedDate}')">
 							
 									<td><a >${document.documentName}</a></td>
 									<td>${document.major}</td>
 									<td>${document.semester}</td>
+									<td>${document.category}</td>
 									<td>${document.subject}</td>
 									<td>${document.courseCredit}</td>
 									<td>${document.nameTeacher}</td>									

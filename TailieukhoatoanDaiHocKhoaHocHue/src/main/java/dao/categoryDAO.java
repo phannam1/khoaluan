@@ -18,6 +18,7 @@ public class categoryDAO {
 	final String CREATECATEGORY= "INSERT INTO CATEGORY(nameCategory,createdBy,UpdatedBy) VALUES(?,?,?) ";
 	final String UPDATECATEGORY="UPDATE CATEGORY SET nameCategory = ?,UpdatedBy=? WHERE idCATEGORY = ? ";
 	final String DELETECATEGORY ="DELETE FROM CATEGORY  WHERE idCATEGORY = ? ";
+	final String SEARCHINPUT = "SELECT * FROM CATEGORY  WHERE nameCategory = ? ";
 
 	Connection con = null;
 	HashUtils hashUtil = null;
@@ -96,5 +97,22 @@ public class categoryDAO {
 		}
 		return false;
 		
+	}
+	public categoryDTO searchInput(String name) {
+		try {
+			PreparedStatement pr = con.prepareStatement(SEARCHINPUT);
+			pr.setString(1, name);
+			ResultSet rs = pr.executeQuery();
+			if(rs!=null) {
+				if(rs.next()) {
+					categoryDTO category = new categoryDTO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+					return category;
+				}
+			}
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

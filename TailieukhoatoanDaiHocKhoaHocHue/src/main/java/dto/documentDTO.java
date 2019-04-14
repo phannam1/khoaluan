@@ -8,7 +8,7 @@ public class documentDTO {
 	private String subject;
 	private int courseCredit;
 	private String nameTeacher;
-	private String typeData;
+	private String category;
 	private String linkData;
 	private int views;
 	private int isShow;
@@ -22,10 +22,13 @@ public class documentDTO {
 		
 	}
 	
-	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
-			String nameTeacher, String typeData, String linkData, int views, int isShow, int createById,
-			int lastModifiedById, String creationDate, String lastModifiedDate, String userName,String userName1) {
-		super();
+	
+
+	public documentDTO(int id, String documentName, String major, String category, String semester, int courseCredit, String subject,
+			String nameTeacher, String linkData, int views, int isShow, int createById,
+			int lastModifiedById, String creationDate,
+			String lastModifiedDate, String createdUserName, String lastModifiedUserName) {
+	
 		this.id = id;
 		this.documentName = documentName;
 		this.major = major;
@@ -33,21 +36,26 @@ public class documentDTO {
 		this.subject = subject;
 		this.courseCredit = courseCredit;
 		this.nameTeacher = nameTeacher;
-		this.typeData = typeData;
+		this.category = category;
 		this.linkData = linkData;
 		this.views = views;
 		this.isShow = isShow;
 		this.createById = createById;
 		this.lastModifiedById = lastModifiedById;
-		this.createdUserName = userName;
-		this.lastModifiedUserName = userName1;
+		this.createdUserName = createdUserName;
+		this.lastModifiedUserName = lastModifiedUserName;
 		this.creationDate = creationDate;
 		this.lastModifiedDate = lastModifiedDate;
 	}
 
+
+
+
+
+
 	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
-			String nameTeacher,  int lastModifiedById) {
-		super();
+			String nameTeacher, String category, int lastModifiedById) {
+
 		this.id = id;
 		this.documentName = documentName;
 		this.major = major;
@@ -55,13 +63,30 @@ public class documentDTO {
 		this.subject = subject;
 		this.courseCredit = courseCredit;
 		this.nameTeacher = nameTeacher;
-		this.isShow = isShow;
+		this.category = category;
+		this.lastModifiedById = lastModifiedById;
+		
+	}
+
+
+
+	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
+			String nameTeacher,  int lastModifiedById) {
+
+		this.id = id;
+		this.documentName = documentName;
+		this.major = major;
+		this.semester = semester;
+		this.subject = subject;
+		this.courseCredit = courseCredit;
+		this.nameTeacher = nameTeacher;
+		
 		this.lastModifiedById = lastModifiedById;
 	}
 
 	public documentDTO( String documentName, String major, String semester, String subject, int courseCredit,
-			String nameTeacher,String typeData, String linkData, int isShow, int createById, int lastModifiedById) {
-		super();
+			String nameTeacher, String linkData, int isShow, int createById, int lastModifiedById) {
+
 	
 		this.documentName = documentName;
 		this.major = major;
@@ -69,7 +94,7 @@ public class documentDTO {
 		this.subject = subject;
 		this.courseCredit = courseCredit;
 		this.nameTeacher = nameTeacher;
-		this.typeData = typeData;
+		
 		this.linkData = linkData;
 		this.isShow = isShow;
 		this.createById = createById;
@@ -77,24 +102,24 @@ public class documentDTO {
 	}
 
 	public documentDTO(String documentName, String major, String semester, String subject, int courseCredit,
-			String nameTeacher, String typeData, String linkData, int createById, int lastModifiedById) {
-		super();
+			String nameTeacher, String linkData, int createById, int lastModifiedById) {
+
 		this.documentName = documentName;
 		this.major = major;
 		this.semester = semester;
 		this.subject = subject;
 		this.courseCredit = courseCredit;
 		this.nameTeacher = nameTeacher;
-		this.typeData = typeData;
+
 		this.linkData = linkData;
 		this.createById = createById;
 		this.lastModifiedById = lastModifiedById;
 	}
 
 	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
-			String nameTeacher, String typeData, String linkData, int views, int isShow, int createById,
+			String nameTeacher, String linkData, int views, int isShow, int createById,
 			int lastModifiedById,String creationDate, String lastModifiedDate,String userName) {
-		super();
+
 		this.id = id;
 		this.documentName = documentName;
 		this.major = major;
@@ -102,7 +127,7 @@ public class documentDTO {
 		this.subject = subject;
 		this.courseCredit = courseCredit;
 		this.nameTeacher = nameTeacher;
-		this.typeData = typeData;
+
 		this.linkData = linkData;
 		this.views = views;
 		this.isShow = isShow;
@@ -115,9 +140,9 @@ public class documentDTO {
 	}
 
 	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
-			String nameTeacher, String typeData, String linkData, int views, int isShow, int createById,
+			String nameTeacher,  String linkData, int views, int isShow, int createById,
 			int lastModifiedById) {
-		super();
+
 		this.id = id;
 		this.documentName = documentName;
 		this.major = major;
@@ -125,7 +150,7 @@ public class documentDTO {
 		this.subject = subject;
 		this.courseCredit = courseCredit;
 		this.nameTeacher = nameTeacher;
-		this.typeData = typeData;
+
 		this.linkData = linkData;
 		this.views = views;
 		this.isShow = isShow;
@@ -134,9 +159,9 @@ public class documentDTO {
 	}
 
 	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
-			String nameTeacher, String typeData, String linkData, int views, int isShow, int createById,
+			String nameTeacher, String linkData, int views, int isShow, int createById,
 			int lastModifiedById, String creationDate) {
-		super();
+
 		this.id = id;
 		this.documentName = documentName;
 		this.major = major;
@@ -144,7 +169,7 @@ public class documentDTO {
 		this.subject = subject;
 		this.courseCredit = courseCredit;
 		this.nameTeacher = nameTeacher;
-		this.typeData = typeData;
+	
 		this.linkData = linkData;
 		this.views = views;
 		this.isShow = isShow;
@@ -156,7 +181,7 @@ public class documentDTO {
 
 	public documentDTO(String documentName, String major, String semester, String subject, int courseCredit,
 			String nameTeacher) {
-		super();
+
 		this.documentName = documentName;
 		this.major = major;
 		this.semester = semester;
@@ -164,6 +189,57 @@ public class documentDTO {
 		this.courseCredit = courseCredit;
 		this.nameTeacher = nameTeacher;
 	}
+
+	public documentDTO(String documentName, String major, String semester, String subject, int courseCredit,
+			String nameTeacher, String category, String linkData, int isShow, int createById, int lastModifiedById) {
+
+		this.documentName = documentName;
+		this.major = major;
+		this.semester = semester;
+		this.subject = subject;
+		this.courseCredit = courseCredit;
+		this.nameTeacher = nameTeacher;
+		this.category = category;
+		this.linkData = linkData;
+		this.isShow = isShow;
+		this.createById = createById;
+		this.lastModifiedById = lastModifiedById;
+	}
+
+	public documentDTO(int id, String documentName, String major, String semester, String subject, int courseCredit,
+			String nameTeacher, String category, String linkData, int views, int isShow, int createById,
+			int lastModifiedById, String creationDate, String lastModifiedDate) {
+
+		this.id = id;
+		this.documentName = documentName;
+		this.major = major;
+		this.semester = semester;
+		this.subject = subject;
+		this.courseCredit = courseCredit;
+		this.nameTeacher = nameTeacher;
+		this.category = category;
+		this.linkData = linkData;
+		this.views = views;
+		this.isShow = isShow;
+		this.createById = createById;
+		this.lastModifiedById = lastModifiedById;
+		this.creationDate = creationDate;
+		this.lastModifiedDate = lastModifiedDate;
+	}
+
+	public documentDTO(String documentName, String major, String category, String semester, String subject, int courseCredit,
+			String nameTeacher) {
+		super();
+		this.documentName = documentName;
+		this.major = major;
+		this.semester = semester;
+		this.subject = subject;
+		this.courseCredit = courseCredit;
+		this.nameTeacher = nameTeacher;
+		this.category = category;
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -207,12 +283,7 @@ public class documentDTO {
 	public void setNameTeacher(String nameTeacher) {
 		this.nameTeacher = nameTeacher;
 	}
-	public String getTypeData() {
-		return typeData;
-	}
-	public void setTypeData(String typeData) {
-		this.typeData = typeData;
-	}
+	
 	public String getLinkData() {
 		return linkData;
 	}
@@ -279,6 +350,14 @@ public class documentDTO {
 
 	public void setLastModifiedDate(String lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 }

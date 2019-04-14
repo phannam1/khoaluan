@@ -60,9 +60,9 @@
 					<li><a href="roleFunctionAdmin">Chức năng của quyền</a></li>
 					<li><a href="documentAdmin" class="selected">Tài liệu</a></li>
 					<li><a href="majorAdmin">Ngành học</a></li>
-					<li><a href="categoryAdmin" >Chuyên ngành</a></li>
-						<li><a href="teacherAdmin" >Giảng Viên</a></li>
-						<li><a href="subjectAdmin" >Môn học</a></li>
+					<li><a href="categoryAdmin">Chuyên ngành</a></li>
+					<li><a href="teacherAdmin">Giảng Viên</a></li>
+					<li><a href="subjectAdmin">Môn học</a></li>
 					<li><a href="questionAdmin">Câu hỏi</a></li>
 					<li><a href="newsAdmin">Tin tức</a></li>
 					<li><a href="helpAdmin">Trợ giúp</a></li>
@@ -101,12 +101,15 @@
 								<label>Ngành học:</label>
 							</div>
 							<div class="col-sm-8">
-								<select class="form_input" name="major" id="major">
-									<option value="" selected>Ngành học</option>
-									<option value="Toán Học">Toán Học</option>
-									<option value="Toán Ứng Dụng">Toán Ứng Dụng</option>
+								<input id="major" value="${role.idMajor}" required="required"
+									class="form_input" name="major" type="text" list="ide"
+									onchange="myFunction(this.id)" placeholder="Ngành học" />
 
-								</select>
+								<datalist id="ide">
+									<c:forEach items="${listMajor}" var="listMajor">
+										<option value="${listMajor.nameMajor}">${listMajor.nameMajor}</option>
+									</c:forEach>
+								</datalist>
 							</div>
 						</div>
 					</div>
@@ -134,13 +137,16 @@
 								<label>Chuyên ngành:</label>
 							</div>
 							<div class="col-sm-8">
-								<select class="form_input" name="subject" id="subject">
-									<option value="" selected>Chuyên ngành</option>
-									<option value="Xác Suất Thống Kê">Xác Suất Thống Kê</option>
-									<option value="Tối Ưu">Tối Ưu</option>
-									<option value="Ứng Dụng">Ứng Dụng</option>
+								<input id="category" value="${role.idCategory}"
+									required="required" class="form_input" name="category"
+									type="text" list="cate" onchange="myFunction(this.id)"
+									placeholder="Nhập chuyên ngành" />
 
-								</select>
+								<datalist id="cate">
+									<c:forEach items="${listCategory}" var="listCategory">
+										<option value="${listCategory.nameCategory}">${listCategory.nameCategory}</option>
+									</c:forEach>
+								</datalist>
 							</div>
 						</div>
 					</div>
@@ -150,10 +156,38 @@
 								<label>Tên giáo viên :</label>
 							</div>
 							<div class="col-sm-8">
-								<input id="nameTeacher" type="text" class="form_input"
-									name="nameTeacher" value="" />
+								<input id="nameTeacher" value="" required="required"
+									class="form_input" name="nameTeacher" type="text"
+									list="teacher" onchange="myFunction(this.id)"
+									placeholder="NameTeacher" />
+
+								<datalist id="teacher">
+									<c:forEach items="${listTeacher}" var="listTeacher">
+										<option value="${listTeacher.nameTeacher}">${listTeacher.nameTeacher}</option>
+									</c:forEach>
+								</datalist>
 							</div>
 						</div>
+						<div class="col-sm-6">
+							<div class="col-sm-4">
+								<label>Môn học:</label>
+							</div>
+							<div class="col-sm-8">
+								<input id="subject" value="${role.idSubject}"
+									required="required" class="form_input" name="subject"
+									type="text" list="sub" onchange="myFunction(this.id)"
+									placeholder="Nhập môn học" />
+
+								<datalist id="sub">
+									<c:forEach items="${listSubject}" var="listSubject">
+										<option value="${listSubject.nameSubject}">${listSubject.nameSubject}</option>
+									</c:forEach>
+								</datalist>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6"></div>
 						<div class="col-sm-6">
 							<div class="col-sm-4">
 								<label>Đã phê duyệt:</label>
@@ -185,8 +219,8 @@
 								<label>Xem tài liệu :</label>
 							</div>
 							<div class="col-sm-8">
-								<label><a id="viewDocument"
-									style="font-weight: normal;" target="_blank">Xem</a></label>
+								<label><a id="viewDocument" style="font-weight: normal;"
+									target="_blank">Xem</a></label>
 							</div>
 						</div>
 					</div>
@@ -197,8 +231,7 @@
 							</div>
 
 							<div class="col-sm-8">
-								<label><div id="createDate"
-										style="font-weight: normal;"></div></label>
+								<label><div id="createDate" style="font-weight: normal;"></div></label>
 							</div>
 
 						</div>
@@ -235,13 +268,14 @@
 							<div class="col-sm-6"></div>
 
 							<div class="col-sm-6">
-								<div class="col-sm-4" id="btnUpdate" style="display: none;">
+								<div class="col-sm-2" id="btnUpdate" style="display: none;">
 									<button style="margin-right: 1%;" type="button"
-										id="btnDisplayPopup" class="btn btn-info" value="" >Chỉnh sửa</button>
+										id="btnDisplayPopup" class="btn btn-info" value="">Chỉnh
+										sửa</button>
 								</div>
-								<div class="col-sm-4" id="btnDelete" style="display: none;">
+								<div class="col-sm-2" id="btnDelete" style="display: none;">
 									<button style="float: left;" type="button" id="btnShowPopup"
-										class="btn btn-danger" value=" " >Xóa </button>
+										class="btn btn-danger" value=" ">Xóa</button>
 								</div>
 
 
@@ -264,14 +298,15 @@
 
 					<div class="container-fluid">
 						<div class="col-md-12">
-							<table id="dataTable0" class="table table-bordered"
+							<table id="dataTable6" class="table table-bordered"
 								cellspacing="0" width="100%">
 								<thead>
 									<tr>
-
+										<th>ID</th>
 										<th>Tài liệu</th>
 										<th>Ngành học</th>
 										<th>Kỳ học</th>
+										<th>Môn học</th>
 										<th>Chuyên ngành</th>
 										<th>Số tín chỉ</th>
 										<th>Giảng viên</th>
@@ -283,35 +318,17 @@
 										<th>Chỉnh sửa</th>
 									</tr>
 								</thead>
-								<tfoot>
-									<tr>
-
-										<th>Tài liệu</th>
-										<th>Ngành học</th>
-										<th>Kỳ học</th>
-										<th>Chuyên ngành</th>
-										<th>Số tín chỉ</th>
-										<th>Giảng viên</th>
-										<th>Đã phê duyệt</th>
-										<th>Người tạo</th>
-										<th>Người sửa cuối cùng</th>
-										<th>Ngày tạo</th>
-										<th>Ngày sửa cuối cùng</th>
-										<th>Chỉnh sửa</th>
-									</tr>
-									<tr>
-										<td colspan="12">Trang quản lý của Admin!</td>
-									</tr>
-								</tfoot>
+							
 								<tbody>
 									<c:forEach items="${listDocument}" var="document">
 										<tr class="odd"
-											onclick="getValueDocument('${document.id}','${document.documentName}','${document.major}','${document.semester}','${document.subject}','${document.courseCredit}','${document.nameTeacher}','${document.isShow }','${document.createdUserName}','${document.lastModifiedUserName}','${document.creationDate}','${document.lastModifiedDate}','${document.linkData}')">
-
-											<td><a>${document.documentName}</a></td>
+											onclick="getValueDocument('${document.id}','${document.documentName}','${document.major}','${document.semester}','${document.category}','${document.subject}','${document.courseCredit}','${document.nameTeacher}','${document.isShow }','${document.createdUserName}','${document.lastModifiedUserName}','${document.creationDate}','${document.lastModifiedDate}','${document.linkData}')">
+											<td>${document.id}</td>
+											<td>${document.documentName}</td>
 											<td>${document.major}</td>
 											<td>${document.semester}</td>
 											<td>${document.subject}</td>
+											<td>${document.category}</td>
 											<td>${document.courseCredit}</td>
 											<td>${document.nameTeacher}</td>
 											<td><input class="isActive" type="checkbox"

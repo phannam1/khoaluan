@@ -6,6 +6,8 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -56,8 +58,10 @@ public class update extends HttpServlet {
 				if(item.isFormField()) {
 					params.put(item.getFieldName(), item.getString());
 				}else {
-					item.write(new File("E:\\TailieukhoatoanDHKHHue\\TailieukhoatoanDaiHocKhoaHocHue\\src\\main\\webapp\\img\\avatar\\"+item.getName()));					
-					linkData = "img/avatar/"+item.getName();
+					SimpleDateFormat dt = new SimpleDateFormat("yyyy_mm_dd_hh_mm_ss"); 
+					String Link =dt.format(new Date()) + item.getName();
+					item.write(new File("F:\\New folder (2)\\khoaluan\\TailieukhoatoanDaiHocKhoaHocHue\\src\\main\\webapp\\img\\avatar\\"+Link));					
+					linkData = "img/avatar/"+Link;
 					
 				}
 					
@@ -83,7 +87,7 @@ public class update extends HttpServlet {
 				String phone = (String ) params.get("phone");
 				String email = (String ) params.get("email");
 				if (!question.equals("") && answer.equals("")) {
-					String message = "Bạn phải nhập câu trả lời bảo mật";
+					String message = "Báº¡n pháº£i nháº­p cÃ¢u tráº£ lá»�i báº£o máº­t";
 					request.setAttribute("error", message);
 					request.getRequestDispatcher("/Infor").forward(request, response);
 				} else {

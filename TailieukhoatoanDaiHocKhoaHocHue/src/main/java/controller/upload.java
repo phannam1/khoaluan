@@ -60,7 +60,7 @@ public class upload extends HttpServlet {
 				else {
 					SimpleDateFormat dt = new SimpleDateFormat("yyyy_mm_dd_hh_mm_ss"); 
 					String Link =dt.format(new Date()) + item.getName();
-					item.write(new File("E:\\TailieukhoatoanDHKHHue\\TailieukhoatoanDaiHocKhoaHocHue\\src\\main\\webapp\\data\\"+Link));
+					item.write(new File("F:\\New folder (2)\\khoaluan\\TailieukhoatoanDaiHocKhoaHocHue\\src\\main\\webapp\\data\\"+Link));
 
 					linkData = "data/" + Link;
 				}
@@ -84,16 +84,19 @@ public class upload extends HttpServlet {
 				subject = new String(bytes2, StandardCharsets.UTF_8);
 				String courseCredit = (String ) params.get("courseCredit");
 				int CourseCredit = Integer.parseInt(courseCredit);
-				String typeData = (String ) params.get("typeData");
+				String category = (String ) params.get("category");	
+				byte[] bytes43 = category.getBytes(StandardCharsets.ISO_8859_1);
+				category = new String(bytes43, StandardCharsets.UTF_8);
 				String nameTeacher = (String ) params.get("nameTeacher");
 				byte[] bytes3 = nameTeacher.getBytes(StandardCharsets.ISO_8859_1);
 				nameTeacher = new String(bytes3, StandardCharsets.UTF_8);
 				int id = Usersession.getAccountId(); 
 				int active = 1;
-				documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher, typeData, linkData,active, id, id);
+			
+				documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher,category,  linkData,active, id, id);
 				if(dao.registerDocumentAdmin(document)) {
 					response.sendRedirect(request.getContextPath()+"/index");
-					System.out.println("create success");
+					
 				}
 				else {
 					response.sendRedirect(request.getContextPath()+"/index");
@@ -113,16 +116,18 @@ public class upload extends HttpServlet {
 				subject = new String(bytes2, StandardCharsets.UTF_8);
 				String courseCredit = (String ) params.get("courseCredit");
 				int CourseCredit = Integer.parseInt(courseCredit);
-				String typeData = (String ) params.get("typeData");
+				String category = (String ) params.get("category");	
+				byte[] bytes43 = category.getBytes(StandardCharsets.ISO_8859_1);
+				category = new String(bytes43, StandardCharsets.UTF_8);
 				String nameTeacher = (String ) params.get("nameTeacher");
 				byte[] bytes3 = nameTeacher.getBytes(StandardCharsets.ISO_8859_1);
 				nameTeacher = new String(bytes3, StandardCharsets.UTF_8);
 				int id = Usersession.getAccountId(); 
-				
-				documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher, typeData, linkData, id, id);
-				if(dao.registerDocument(document)) {
+				int active = 0;
+				documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher,category,  linkData,active, id, id);
+				if(dao.registerDocumentAdmin(document)) {
 					response.sendRedirect(request.getContextPath()+"/index");
-					System.out.println("create success");
+					
 				}
 				else {
 					response.sendRedirect(request.getContextPath()+"/index");

@@ -166,11 +166,11 @@
 						
 					</div>
 						 
-					</div>
+					
 					
 
 
-				</div>
+				
 			</form>
 
 			<div class="clear"></div>

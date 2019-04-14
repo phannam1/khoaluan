@@ -219,19 +219,22 @@
 								<label>Ngành học: ${document.major}</label>
 							</div>
 							<div>
-								<label>Chuyên ngành: ${document.subject}</label>
+								<label>Giảng viên : ${document.category}</label>
 							</div>
 							<div>
-								<label>Số tín chỉ: ${document.courseCredit}</label>
+								<label> Học Kỳ : ${document.subject}</label>
 							</div>
 							<div>
-								<label>Giáo viên giảng dạy: ${document.nameTeacher}</label>
+								<label>Số tín chỉ :  ${document.courseCredit}</label>
+							</div> 
+							<div>
+								<label>	 Môn học : ${document.nameTeacher}</label>
 							</div>
 							<div>
-								<label>Độ khó: 7/10</label>
+								<label>Độ khó :  7/10</label>
 							</div>
 							<div>
-								<label>Học Kỳ: ${document.semester}</label>
+								<label>Chuyên ngành :  ${document.semester}</label>
 							</div>
 
 							

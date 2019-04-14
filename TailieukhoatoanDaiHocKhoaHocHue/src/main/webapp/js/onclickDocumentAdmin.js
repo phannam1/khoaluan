@@ -25,11 +25,12 @@ var list = [];
 	  
 	  console.log(list.valueOf());
   };
-function getValueDocument(id,nameDocument,major,semester,subject,courseCredit,nameTeacher,isShow,lasUserName,createDate,lasDate){
+function getValueDocument(id,nameDocument,major,semester,category,subject,courseCredit,nameTeacher,isShow,lasUserName,createDate,lasDate){
 	document.getElementById("documentId").value = id;
 	document.getElementById("nameDocument").value = nameDocument;
 	document.getElementById("major").value = major;
 	document.getElementById("semester").value = semester;
+	document.getElementById("category").value = category;
 	document.getElementById("subject").value = subject;
 	document.getElementById("courseCredit").value = courseCredit;
 	document.getElementById("nameTeacher").value = nameTeacher;	
@@ -38,10 +39,12 @@ function getValueDocument(id,nameDocument,major,semester,subject,courseCredit,na
 	if(active == 1){
 		 $('#isShow').attr("checked","checked");
 		 $('#nameDocument').attr("readonly","readonly");
+		 $('#category').attr("readonly","readonly");
 		 $('#major').attr("readonly","readonly");
-		 $('#semester').attr("readonly","readonly");
+		 
 		 $('#subject').attr("readonly","readonly");
 		 $('#courseCredit').attr("disabled",true);
+		 $('#semester').attr("disabled",true);
 		 $('#nameTeacher').attr("readonly","readonly");
 		 document.getElementById("btnUpdate").style.display = 'none';
 		 document.getElementById("thongbao").style.display = 'block';
@@ -53,6 +56,7 @@ function getValueDocument(id,nameDocument,major,semester,subject,courseCredit,na
 		 $('#semester').removeAttr("readonly");
 		 $('#subject').removeAttr("readonly");
 		 $('#courseCredit').attr("disabled",false);
+		 $('#semester').attr("disabled",false);
 		 $('#nameTeacher').removeAttr("readonly");
 		 document.getElementById("btnUpdate").style.display = 'block';
 		 document.getElementById("thongbao").style.display = 'none';
