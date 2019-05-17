@@ -13,12 +13,13 @@ import utils.DBConnector;
 import utils.HashUtils;
 
 public class accountDAO {
+	final String SQLGETMAX ="SELECT max(accountId) FROM mydocument.account;";
 	final String SQLREADALLACCOUNT = "SELECT a2.*,a1.username as 'taikhoan' FROM ACCOUNT a1  join ACCOUNT a2 on a1.accountId=a2.lastModifiedById WHERE a2.ISDELETE = 0";
 	final String SQLLOGIN = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 1 AND ISDELETE = 0";
 	final String SQLGETACCOUNT1 = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? ";
 	final String SQLLOGINNOACTIVE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 0 ";
 	final String SQLCHECKISDELETE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ?";
-	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,ROLEID) VALUES(?,?,?,?,?)";
+	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,lastModifiedById,ROLEID) VALUES(?,?,?,?,?,?)";
 	final String SQLUPDATEACTIVEDELETE = "UPDATE ACCOUNT SET ISACTIVE = ?,ISDELETE = ?,lastModifiedById = ? WHERE USERNAME = ? ";
 	final String SQLUPDATEACCOUNT = "UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?, avatar = ?  where accountId = ? ";
 	final String SQLUPDATEACCOUNT2 = "UPDATE ACCOUNT set questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?, avatar = ?  where accountId = ? ";
@@ -88,7 +89,23 @@ public class accountDAO {
 //		}
 //		return false;
 //	}
-
+public int getMax() {
+	
+	try {
+		Statement sttm = con.createStatement();
+		ResultSet rs = sttm.executeQuery(SQLGETMAX);
+		if(rs!=null) {
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	return 0 ;
+}
 	public List<accountDTO> readAllAccount() {
 		try {
 			Statement sttm = con.createStatement();
@@ -118,8 +135,9 @@ public class accountDAO {
 			pr.setString(1, account.getName());
 			pr.setString(2, account.getUserName());
 			pr.setString(3, hashUtil.hashmd5(account.getPassword()));
-			pr.setString(4, account.getEmail());		
-			pr.setInt(5, account.getRoleId());
+			pr.setString(4, account.getEmail());
+			pr.setInt(5, account.getLasModifiedById());
+			pr.setInt(6, account.getRoleId());
 			int i = pr.executeUpdate();
 			if (i != 0) {
 				return account;

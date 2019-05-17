@@ -99,9 +99,9 @@
 								</div>
 								<div class="col-sm-6">
 								<div class="aa-single-field">
-									<label> Ngành Học: <span class="required">*</span></label>
+									<label> Ngành Học: <span class="required"></span></label>
 									<div class="aa-single-advance-search">
-										<input value="${role.idMajor}" required="required"
+										<input value="${role.idMajor}" 
 											class="form_input" name="major" type="text" list="ide"
 											onchange="myFunction(this.id)" placeholder="Ngành học" />
 
@@ -135,9 +135,9 @@
 								</div>
 							<div class="col-sm-6">
 								<div class="aa-single-field">
-									<label>Chuyên Ngành: <span class="required">*</span></label>
+									<label>Chuyên Ngành: <span class="required"></span></label>
 									<div class="aa-single-advance-search">
-										<input value="${role.idCategory}" required="required"
+										<input value="${role.idCategory}" 
 											class="form_input" name="category" type="text" list="cate"
 											onchange="myFunction(this.id)" placeholder="Nhập chuyên ngành" />
 										<datalist id="cate">
@@ -165,9 +165,9 @@
 								</div>
 								<div class="col-sm-6">
 								<div class="aa-single-field">
-									<label>Môn học: <span class="required">*</span></label>
+									<label>Môn học: <span class="required"></span></label>
 									<div class="aa-single-advance-search">
-										<input value="${role.idSubject}" required="required"
+										<input value="${role.idSubject}" 
 											class="form_input" name="subject" type="text" list="sub"
 											onchange="myFunction(this.id)" placeholder="Nhập môn học" />
 
@@ -181,11 +181,11 @@
 								</div>
 								</div>
 								<div class="aa-single-field">
-									<label for="name">Tên Giảng Viên : <span class="required">*</span></label>
+									<label for="name">Tên Giảng Viên : <span class="required"></span></label>
 									<div class="aa-single-advance-search">
-										<input value="" required="required"
+										<input value="" 
 											class="form_input" name="nameTeacher" type="text" list="teacher"
-											onchange="myFunction(this.id)" placeholder="NameTeacher" />
+											onchange="myFunction(this.id)" placeholder="Tên giáo viên" />
 
 										<datalist id="teacher">
 											<c:forEach items="${listTeacher}" var="listTeacher">

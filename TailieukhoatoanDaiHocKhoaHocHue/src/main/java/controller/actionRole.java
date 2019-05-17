@@ -41,7 +41,7 @@ public class actionRole extends HttpServlet {
 		String userName = request.getParameter("chooseUserName");
 		
 		if(userName.equals("")) {
-			String message = "Bạn phải nhập vào trường này";
+			String message = "Ban phai nhap vao day";
 			request.setAttribute("error", message);
 			request.getRequestDispatcher("/roleAdmin").forward(request, response);
 			

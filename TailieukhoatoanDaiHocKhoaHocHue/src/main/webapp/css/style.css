@@ -122,7 +122,8 @@ color: black;}
 		position: absolute;
 		top: 0; left: 0;
 		height: 100%;
-		width: 100%;
+        width: 100%;
+    }
 		.fa-arrow-circle-up{
 			position: absolute;
 			font-size: 234px;
@@ -136,7 +137,7 @@ color: black;}
 		.upload-button:hover .fa-arrow-circle-up{
 			opacity: .9;
 		}
-	}
+	
 
 .no-padding {
   padding: 0;
@@ -1012,8 +1013,8 @@ img {
    width: 100%;
 }
 .aa-properties-item .aa-properties-item-img >img {
-   width: 424px;
-   height: 220px;
+   width: 100%;
+  
 }
 .aa-properties-item .aa-tag {
   color: #fff;

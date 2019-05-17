@@ -75,7 +75,7 @@
 
 		<ul class="tabsmenu">
 			<li class="active">
-				<form name="searchInput" method="post" action="searchInputRoleFunction">
+				<!-- <form name="searchInput" method="post" action="searchInputRoleFunction">
 					<div>
 						<div>
 							<input id="btnSearch" type="button" class="form_submit"
@@ -89,7 +89,7 @@
 
 
 					</div>
-				</form>
+				</form> -->
 			</li>
 			<li class="active"><a>Thông Tin các chức năng của quyền </a></li>
 

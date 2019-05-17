@@ -61,8 +61,7 @@ public class update extends HttpServlet {
 					SimpleDateFormat dt = new SimpleDateFormat("yyyy_mm_dd_hh_mm_ss"); 
 					String Link =dt.format(new Date()) + item.getName();
 					item.write(new File("F:\\New folder (2)\\khoaluan\\TailieukhoatoanDaiHocKhoaHocHue\\src\\main\\webapp\\img\\avatar\\"+Link));					
-					linkData = "img/avatar/"+Link;
-					
+					linkData = "img/avatar/"+Link;	
 				}
 					
 				}	

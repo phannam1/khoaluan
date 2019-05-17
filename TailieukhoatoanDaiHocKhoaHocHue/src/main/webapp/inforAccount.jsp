@@ -86,7 +86,7 @@
 									<div id="checkValue" class="aa-single-field">
 										<div class="col-sm-6">
 											<label>Mật Khẩu Cấp 2 Của Bạn : <span
-												class="required"></span></label> <input id="matkhau" type="password"
+												class="required"></span></label> <input minlength="6"  id="matkhau" type="password"
 												name="passwordLevel2" value="${account.passwordLevel2}"
 												placeholder="passwordLevel2"
 												onmousemove="checkValudationInfor(this.id)">

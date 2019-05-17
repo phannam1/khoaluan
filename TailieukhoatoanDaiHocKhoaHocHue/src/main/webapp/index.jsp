@@ -7,7 +7,7 @@
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta charset="utf-8">
+<meta  charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tài Liệu Khoa Toán DHKH Huế</title>
@@ -212,7 +212,7 @@
 					<div class="aa-advance-search-top">
 						<div class="row">
 							<form action="searchDetailDocument" method="post">
-								<div class="col-md-2">
+								<div class="col-md-4">
 									<div class="aa-single-advance-search">
 										<input type="text" placeholder="Tên tài liệu" value=""
 											name="nameDocument">
@@ -261,17 +261,7 @@
 									</div>
 								</div>
 								
-								<div class="col-md-2">
-									<div class="aa-single-advance-search">
-										<select name="courseCredit">
-											<option value="0" selected>Số tín chỉ</option>
-											<option value="2">2 Tín Chỉ</option>
-											<option value="3">3 Tín Chỉ</option>
-											<option value="4">4 Tín Chỉ</option>
-
-										</select>
-									</div>
-								</div>
+								
 								
 								
 
@@ -282,11 +272,13 @@
 								</div>
 								<div class="col-md-2">
 								</div>
+								<div class="col-md-2">
+								</div>
 								<div class="col-md-2" style="margin-top: 15px">
 									<div class="aa-single-advance-search">
 										<input value="${role.idSubject}" 
 											class="form_input" name="subject" type="text" list="sub"
-											onchange="myFunction(this.id)" placeholder="Subject" />
+											onchange="myFunction(this.id)" placeholder="Môn học" />
 
 										<datalist id="sub">
 											<c:forEach items="${listSubject}" var="listSubject">
@@ -299,13 +291,24 @@
 									<div class="aa-single-advance-search">
 										<input value="" 
 											class="form_input" name="nameTeacher" type="text" list="teacher"
-											onchange="myFunction(this.id)" placeholder="NameTeacher" />
+											onchange="myFunction(this.id)" placeholder="Tên giảng viên" />
 
 										<datalist id="teacher">
 											<c:forEach items="${listTeacher}" var="listTeacher">
 												<option value="${listTeacher.nameTeacher}">${listTeacher.nameTeacher}</option>
 											</c:forEach>
 										</datalist>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="aa-single-advance-search" style="margin-top: 15px">
+										<select name="courseCredit">
+											<option value="0" selected>Số tín chỉ</option>
+											<option value="2">2 Tín Chỉ</option>
+											<option value="3">3 Tín Chỉ</option>
+											<option value="4">4 Tín Chỉ</option>
+
+										</select>
 									</div>
 								</div>
 							</form>
@@ -367,7 +370,7 @@
 										</div>
 
 									</c:forEach>
-									<a href="<%=request.getContextPath()%>/forum">Xem đầy đủ</a>
+									<a href="<%=request.getContextPath()%>/forum" style="color: red;font-size: 20px">Xem đầy đủ</a>
 								</div>
 
 							</div>
@@ -385,7 +388,7 @@
 	</section>
 	<!-- Latest property -->
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-7">
 			<div class="row">
 				<section id="aa-latest-property">
 					<div>
@@ -407,8 +410,8 @@
 													<article class="aa-properties-item">
 														<a
 															href="<%=request.getContextPath()%>/detailDocument?id=${document.id}"
-															class="aa-properties-item-img"> <img
-															src="${document.linkData}" width="388px" alt="img">
+															class="aa-properties-item-img"> <img style="height: 250px;"
+															src="${document.linkData}"  alt="img">
 														</a>
 														<div class="aa-properties-item-content"
 															style="height: 151px;">
@@ -448,11 +451,11 @@
 
 					</div>
 				</section>
-				<a style="margin-left: 15px"
-					href="<%=request.getContextPath()%>/document">xem đầy đủ </a>
+				<a style="margin-left: 15px;color: red;font-size: 20px"
+					href="<%=request.getContextPath()%>/document" >xem đầy đủ </a>
 			</div>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 
 
 			<!-- Latest blog -->
@@ -461,7 +464,7 @@
 					<div class="aa-latest-property-area">
 						<div class="aa-title">
 							<h2 style="float: left;">Tin Tuyển Dụng-Sự Kiện</h2>
-							<span></span>
+							
 
 						</div>
 
@@ -479,7 +482,7 @@
 													<article class="aa-properties-item">
 														<a
 															href="<%=request.getContextPath()%>/news?id=${news.newsId}"
-															class="aa-properties-item-img"> <img
+															class="aa-properties-item-img"> <img style="width:50%;height:250px"
 															src="${news.pictureLink }" alt="img">
 														</a>
 														<div class="aa-properties-item-content"
@@ -514,8 +517,8 @@
 					</div>
 				</div>
 			</section>
-			<a style="margin-left: 15px"
-				href="<%=request.getContextPath()%>/event">xem đầy đủ </a>
+			<a style="margin-left: 15px;color: red;font-size: 20px"
+				href="<%=request.getContextPath()%>/event" >xem đầy đủ </a>
 		</div>
 	</div>
 

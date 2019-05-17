@@ -15,7 +15,8 @@ import beans.constants;
 
 import dao.accountDAO;
 import dto.accountDTO;
-
+import rsa.GenerateKeys;
+import rsa.MainApp;
 import utils.HashUtils;
 
 /**
@@ -31,10 +32,12 @@ public class login extends HttpServlet {
 	accountDAO dao = null;
 	checkLogin check = null;
 	HashUtils hashUtil = null;
+	MainApp main = null;
     public login() {
         dao =new accountDAO();
         check = new checkLogin();
         hashUtil = new HashUtils();
+        main = new MainApp();
     }
 
 	/**
@@ -51,8 +54,10 @@ public class login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+       
 		String userName = (String) request.getParameter("userName");
-		String password = (String) request.getParameter("password");		
+		String password = (String) request.getParameter("password");
+		
 		if(dao.checkLogin(userName,hashUtil.hashmd5(password)) ) {
 			HttpSession session = request.getSession();
 			accountDTO account = new accountDTO();

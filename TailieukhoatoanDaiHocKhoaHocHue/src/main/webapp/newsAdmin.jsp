@@ -80,7 +80,7 @@
 		</div>
 <ul  class="tabsmenu">
 <li class="active">
-				<form name="searchInput" method="post" action="searchInputNews">
+				<!-- <form name="searchInput" method="post" action="searchInputNews">
 					<div>
 						<div>
 							<input id="btnSearchNews" type="button" class="form_submit"
@@ -94,7 +94,7 @@
 
 
 					</div>
-				</form>
+				</form> -->
 			</li>
 						<li class="active"><a href="">Thông Tin các tin tức
 								của trang</a></li>

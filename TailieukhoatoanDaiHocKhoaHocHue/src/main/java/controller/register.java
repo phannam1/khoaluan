@@ -51,6 +51,7 @@ public class register extends HttpServlet {
 			request.getRequestDispatcher("/register.jsp").forward(request, response);		
 		}
 		else {
+			int lasId = dao.getMax();
 			String name = (String) request.getParameter("name");
 			if(name=="") {
 				response.sendRedirect(request.getContextPath()+"/register.jsp");
@@ -65,7 +66,7 @@ public class register extends HttpServlet {
 			if(email=="") {
 				response.sendRedirect(request.getContextPath()+"/register.jsp");
 			}
-			accountDTO account = new accountDTO(name,userName,password,email,2);
+			accountDTO account = new accountDTO(name,userName,password,email,lasId+1,2);
 			if(dao.create(account)!=null && check.checkRetryPassword(password, retryPassword) ) {
 				System.out.println("create success");
 				response.sendRedirect(request.getContextPath()+"/signin.jsp");	

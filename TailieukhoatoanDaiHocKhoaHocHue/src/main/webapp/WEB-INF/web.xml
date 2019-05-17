@@ -488,6 +488,12 @@
   	<description></description>
   	<servlet-class>controller.deleteSubject</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>loginRsa</servlet-name>
+  	<display-name>loginRsa</display-name>
+  	<description></description>
+  	<servlet-class>controller.loginRsa</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	 <servlet-name>Infor</servlet-name>
@@ -810,5 +816,9 @@
   <servlet-mapping>
   	<servlet-name>deleteSubject</servlet-name>
   	<url-pattern>/deleteSubject</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>loginRsa</servlet-name>
+  	<url-pattern>/loginRsa</url-pattern>
   </servlet-mapping>
 </web-app>

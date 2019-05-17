@@ -66,7 +66,7 @@
                
                 <div class="aa-single-field">
                   <label >Mật Khẩu <span class="required">*</span></label>
-                  <input id="matkhau" type="password" name="password" value="" placeholder="password" onmousemove="checkValudation(this.id)">  
+                  <input minlength="6" id="matkhau" type="password" name="password" value="" placeholder="password" onmousemove="checkValudation(this.id)" >  
                   
                   <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
                 </div> 

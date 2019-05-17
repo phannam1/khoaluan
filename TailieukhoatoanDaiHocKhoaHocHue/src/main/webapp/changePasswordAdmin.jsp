@@ -105,7 +105,7 @@
 											<label>Mật khẩu cũ:</label>
 										</div>
 										<div class="col-sm-8">
-											<input type="password" class="form_input" name="password"
+											<input minlength="6"  type="password" class="form_input" name="password"
 												value="" required="required" />
 										</div>
 									</div>
@@ -118,7 +118,7 @@
 											<label>Mật khẩu mới:</label>
 										</div>
 										<div class="col-sm-8">
-											<input type="password" class="form_input" name="newPassword"
+											<input minlength="6"  type="password" class="form_input" name="newPassword"
 												value="" required="required" />
 										</div>
 									</div>
@@ -131,7 +131,7 @@
 											<label>Nhập lại mật khẩu:</label>
 										</div>
 										<div class="col-sm-8">
-											 <input type="password"
+											 <input minlength="6"  type="password"
 										class="form_input" name="retryPassword" value=""
 										required="required" />
 										</div>

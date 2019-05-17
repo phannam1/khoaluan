@@ -27,6 +27,16 @@ public class accountDTO implements Serializable {
 		
 	}
 	
+	public accountDTO(String userName, String password, String name, String email, int lasModifiedById, int roleId) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+		this.roleId = roleId;
+		this.lasModifiedById = lasModifiedById;
+	}
+
 	public accountDTO(int accountId, String userName, String password, String name, String avatar, String address,
 			String phone, String email, String passwordLevel2, String questionSecurity, String answerSecurity,
 			int isActive, int isDelete, int roleId, int lasModifiedById, String creationDate, String lastModifiedDate) {

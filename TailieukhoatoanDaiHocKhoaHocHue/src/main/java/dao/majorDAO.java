@@ -8,8 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.categoryDTO;
-import dto.helpDTO;
+
 import dto.majorDTO;
 import utils.DBConnector;
 import utils.HashUtils;

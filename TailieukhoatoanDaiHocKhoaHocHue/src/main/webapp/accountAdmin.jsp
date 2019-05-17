@@ -81,7 +81,7 @@
 
 		<ul class="tabsmenu">
 			<li class="active">
-				<form name="searchInput" method="post" action="searchInput">
+				<!-- <form name="searchInput" method="post" action="searchInput">
 					<div>
 						<div>
 							<input id="btnSearch" type="button" class="form_submit"
@@ -95,7 +95,7 @@
 
 
 					</div>
-				</form>
+				</form> -->
 			</li>
 
 			<li class="active"><a>Thông Tin người dùng</a></li>

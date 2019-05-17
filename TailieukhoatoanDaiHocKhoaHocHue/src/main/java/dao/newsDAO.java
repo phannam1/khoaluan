@@ -13,8 +13,8 @@ import utils.DBConnector;
 import utils.HashUtils;
 
 public class newsDAO {
-	final String READALLNEWS = "SELECT news.*, a1.userName,a2.userName FROM NEWS  join account a1 on news.createById = a1.accountid  join account a2 on news.lastModifiedById = a2.accountid ";
-	final String READALLNEWSLIMIT = "SELECT news.*, a1.userName,a2.userName FROM NEWS  join account a1 on news.createById = a1.accountid  join account a2 on news.lastModifiedById = a2.accountid limit 3 ";
+	final String READALLNEWS = "SELECT news.*, a1.userName,a2.userName FROM NEWS  join account a1 on news.createById = a1.accountid  join account a2 on news.lastModifiedById = a2.accountid order by lastModifiedDate desc ";
+	final String READALLNEWSLIMIT = "SELECT news.*, a1.userName,a2.userName FROM NEWS  join account a1 on news.createById = a1.accountid  join account a2 on news.lastModifiedById = a2.accountid  order by lastModifiedDate desc limit 3 ";
 	final String READNEWSBYID = "SELECT news.*, a1.userName,a2.userName FROM NEWS  join account a1 on news.createById = a1.accountid  join account a2 on news.lastModifiedById = a2.accountid WHERE NEWSID = ? ";
 	final String REGISTERNEWS = "INSERT INTO NEWS(TITLE,PICTURELINK,CONTENT,CREATEBYID,LASTMODIFIEDBYID) VALUES (?,?,?,?,?)";
 	final String UPDATENEWS = "UPDATE NEWS SET TITLE = ?, PICTURELINK = ?, CONTENT = ?, LASTMODIFIEDBYID = ? WHERE NEWSID = ?";

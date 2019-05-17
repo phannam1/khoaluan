@@ -57,17 +57,17 @@
               <form class="contactform" method="post" action="changePasswordAccount">
               <div class="aa-single-field">
                   <label for="password">Mật Khẩu Cũ<span class="required">*</span></label>
-                  <input id="mk" type="password" name="password" required="required" onmousemove="checkValudationChangePassword(this.id)"> 
+                  <input minlength="6"  id="mk" type="password" name="password" required="required" onmousemove="checkValudationChangePassword(this.id)"> 
                   <p id="checkNullmk">Mật khẩu không được trống</p> 
                 </div>                                                 
                 <div class="aa-single-field">
                   <label for="password">Mật Khẩu Mới <span class="required">*</span></label>
-                  <input id="matkhau" type="password" name="newPassword" required="required" onmousemove="checkValudationChangePassword(this.id)">
+                  <input minlength="6"  id="matkhau" type="password" name="newPassword" required="required" onmousemove="checkValudationChangePassword(this.id)">
                   <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p> 
                 </div>
                 <div class="aa-single-field">
                   <label for="confirm-password">Nhập Lại Mật Khẩu <span class="required">*</span></label>
-                  <input id="confirmmatkhau" type="password" name="confirmPassword" required="required" onmousemove="checkValudationChangePassword(this.id)"> 
+                  <input minlength="6"  id="confirmmatkhau" type="password" name="confirmPassword" required="required" onmousemove="checkValudationChangePassword(this.id)"> 
                   
                   <p id="checkNullConfirm"> Mật khẩu phải giống nhau</p>
                 </div> 

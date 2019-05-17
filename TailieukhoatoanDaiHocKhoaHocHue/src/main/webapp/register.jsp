@@ -80,12 +80,12 @@
                 <div class="aa-single-field">
                 <div class="col-sm-6">
                   <label >Mật Khẩu <span class="required">*</span></label>
-                  <input id = "matkhau"  id="matkhau" type="password" name="password" value="" placeholder="password" onmousemove="checkValudationRegister(this.id)"> 
+                  <input minlength="6"  id = "matkhau"  id="matkhau" type="password" name="password" value="" placeholder="password" onmousemove="checkValudationRegister(this.id)"> 
                 <p id="checkMore6">Mật khẩu phải từ 6 ký tự trở lên</p>
                 </div>
                 <div class="col-sm-6">
                   <label >Xác Nhận  <span class="required">*</span></label>
-                  <input  id="confirmmatkhau" type="password" name="confirmpassword" value="" placeholder="RetryPassword" onmousemove="checkValudationRegister(this.id)"> 
+                  <input minlength="6"  id="confirmmatkhau" type="password" name="confirmpassword" value="" placeholder="RetryPassword" onmousemove="checkValudationRegister(this.id)"> 
                  
                   <p id="checkNullConfirm"> Mật khẩu phải giống nhau</p>
                   </div>

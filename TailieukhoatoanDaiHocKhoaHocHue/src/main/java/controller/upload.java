@@ -127,7 +127,6 @@ public class upload extends HttpServlet {
 				documentDTO document = new documentDTO(nameDocument, major, semester, subject, CourseCredit, nameTeacher,category,  linkData,active, id, id);
 				if(dao.registerDocumentAdmin(document)) {
 					response.sendRedirect(request.getContextPath()+"/index");
-					
 				}
 				else {
 					response.sendRedirect(request.getContextPath()+"/index");

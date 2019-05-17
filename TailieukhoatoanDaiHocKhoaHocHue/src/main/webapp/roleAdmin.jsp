@@ -73,7 +73,7 @@
 
 		<ul class="tabsmenu">
 			<li class="active">
-				<form name="searchInputRole" method="post" action="searchInputRole">
+				<!-- <form name="searchInputRole" method="post" action="searchInputRole">
 					<div>
 						<div>
 							<input id="btnSearchRole" type="button" class="form_submit"
@@ -87,7 +87,7 @@
 
 
 					</div>
-				</form>
+				</form> -->
 			</li>
 			<li class="active"><a>Thông Tin các quyền của người dùng</a></li>
 

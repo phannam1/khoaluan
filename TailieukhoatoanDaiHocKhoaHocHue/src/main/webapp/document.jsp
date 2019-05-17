@@ -221,6 +221,7 @@
 									</div>
 								</li>
 								</c:forEach>
+								
 								</form>
 								
 								
@@ -233,7 +234,7 @@
 						<!-- Start properties content bottom -->
 						
 					</div>
-					<nav style="margin-top: 20px; margin-left: 20px;">
+					<nav>
 							<ul class="pagination justify-content-center pagination-sm">
 						
 							</ul>
