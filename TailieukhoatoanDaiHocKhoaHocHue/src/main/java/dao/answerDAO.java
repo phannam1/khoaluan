@@ -15,7 +15,7 @@ import utils.HashUtils;
 
 public class answerDAO {
 	final String READALLANSWER = "SELECT answer.answerId,answer.createById,answer.answerText,answer.dateTime,answer.lastModifiedDate,question.questionName,a2.userName as 'nguoitraloi	' ,a2.avatar FROM answer inner join question on question.questionId = answer.questionId inner join account a2 on answer.createById = a2.accountId where question.questionId= ? order by answer.lastModifiedDate desc;" ; 
-	final String CREATEANSWER = "INSERT INTO  ANSWER(answerText,questionId,createById,lastModifiedById) VALUES(?,?,?,?)";
+	final String CREATEANSWER = "INSERT INTO  ANSWER(answerText,questionId,createById,lasModifiedById) VALUES(?,?,?,?)";
 	final String UPDATEFIELDNUMBER = "UPDATE QUESTION SET numberAnswer = ? WHERE QUESTIONID = ?";
 	final String GETNUMBER = "SELECT numberAnswer FROM QUESTION WHERE QUESTIONID = ?";
 	final String UPDATEANSWER = "UPDATE ANSWER SET answerText = ? WHERE answerId = ?";

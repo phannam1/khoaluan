@@ -20,7 +20,7 @@ public class questionDTO {
 	}
 	
 	
-	public questionDTO(int questionId, String questionName,  String time, String lastModifiedDate,int numberQuestion ) {
+	public questionDTO(int questionId, String questionName,int numberQuestion,  String time, String lastModifiedDate ) {
 		super();
 		this.questionId = questionId;
 		this.questionName = questionName;

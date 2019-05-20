@@ -37,7 +37,7 @@ public class questionDAO {
 			if(rs!=null) {
 				List<questionDTO> list = new ArrayList<>();
 				while(rs.next()) {
-					questionDTO question = new questionDTO(rs.getInt(1), rs.getString(2),  rs.getString(3), rs.getString(6),rs.getInt(7));
+					questionDTO question = new questionDTO(rs.getInt(1), rs.getString(2),rs.getInt(3),  rs.getString(4), rs.getString(7));
 					list.add(question);
 				}
 				return list;	

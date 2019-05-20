@@ -19,7 +19,7 @@ public class accountDAO {
 	final String SQLGETACCOUNT1 = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? ";
 	final String SQLLOGINNOACTIVE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ? AND ISACTIVE = 0 ";
 	final String SQLCHECKISDELETE = "SELECT * FROM ACCOUNT WHERE USERNAME = ? AND PASSWORD = ?";
-	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,lastModifiedById,ROLEID) VALUES(?,?,?,?,?,?)";
+	final String SQLREGISTER = "INSERT INTO ACCOUNT(NAME,USERNAME,PASSWORD,EMAIL,lasModifiedById,ROLEID) VALUES(?,?,?,?,?,?)";
 	final String SQLUPDATEACTIVEDELETE = "UPDATE ACCOUNT SET ISACTIVE = ?,ISDELETE = ?,lastModifiedById = ? WHERE USERNAME = ? ";
 	final String SQLUPDATEACCOUNT = "UPDATE ACCOUNT set passWordLevel2 = ? ,questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?, avatar = ?  where accountId = ? ";
 	final String SQLUPDATEACCOUNT2 = "UPDATE ACCOUNT set questionSecurity = ? ,answerSecurity = ? ,address = ? ,phone = ? ,email = ?,lastModifiedById = ?, avatar = ?  where accountId = ? ";
@@ -134,7 +134,7 @@ public int getMax() {
 			PreparedStatement pr = con.prepareStatement(SQLREGISTER);
 			pr.setString(1, account.getName());
 			pr.setString(2, account.getUserName());
-			pr.setString(3, hashUtil.hashmd5(account.getPassword()));
+			pr.setString(3, hashUtil.hashmd5(account.getPassword()) );
 			pr.setString(4, account.getEmail());
 			pr.setInt(5, account.getLasModifiedById());
 			pr.setInt(6, account.getRoleId());

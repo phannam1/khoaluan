@@ -7,6 +7,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Adminnitrator</title>
+<link rel="shortcut icon" href="img/C.PNG" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="css/admin.css" />
 <link href='http://fonts.googleapis.com/css?family=Belgrano'
 	rel='stylesheet' type='text/css' />
@@ -26,7 +27,7 @@
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet" />
 <!-- slick slider -->
-<link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
+
 
 <script type="text/javascript"
 	src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>

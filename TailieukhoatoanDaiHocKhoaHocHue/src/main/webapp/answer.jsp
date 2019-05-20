@@ -89,11 +89,11 @@
 									<p id="admin">${account.roleId}</p>
 									<p id="show2">Xin Chào: ${account.name}</p>
 									<a id="show" href="<%=request.getContextPath()%>/Infor"><i
-										class="fa fa-cog"></i> Cài Đặt </a> <a id="show1"
-										href="<%=request.getContextPath()%>/Logout"><i
-										class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a> <a
+										class="fa fa-cog"></i> Cài Đặt </a>  <a
 										id="showAdmin" href="indexAdmin"><i class="fa fa-user"></i>Quản
-										trị viên</a> <a id="hide" href="register.jsp"><i
+										trị viên</a><a id="show1"
+										href="<%=request.getContextPath()%>/Logout"><i
+										class="fa fa-sign-out" aria-hidden="true"></i>Đăng Xuất</a> <a id="hide" href="register.jsp"><i
 										class="fa fa-user-plus"></i>Đăng Ký</a> <a id="hide1"
 										href="signin.jsp"><i class="fa fa-sign-in"
 										aria-hidden="true"></i>Đăng Nhập</a>

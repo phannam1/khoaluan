@@ -21,7 +21,7 @@
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet" />
 <!-- slick slider -->
-<link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
+<link rel="shortcut icon" href="img/C.PNG" type="image/x-icon">
 
 <script type="text/javascript"
 	src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>

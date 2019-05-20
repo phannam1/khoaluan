@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Adminnitrator</title>
+<link rel="shortcut icon" href="img/C.PNG" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="css/admin.css" />
 <link href='http://fonts.googleapis.com/css?family=Belgrano'
 	rel='stylesheet' type='text/css'>

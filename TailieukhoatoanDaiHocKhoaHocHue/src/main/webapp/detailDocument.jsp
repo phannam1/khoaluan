@@ -10,7 +10,7 @@
 <title>Tài Liệu Khoa Toán DHKH Huế</title>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
+<link rel="shortcut icon" href="img/C.PNG" type="image/x-icon">
 
 <!-- Font awesome -->
 <link href="css/font-awesome.css" rel="stylesheet">
@@ -219,22 +219,22 @@
 								<label>Ngành học: ${document.major}</label>
 							</div>
 							<div>
-								<label>Giảng viên : ${document.category}</label>
+								<label>Giảng viên : ${document.nameTeacher}</label>
 							</div>
 							<div>
-								<label> Học Kỳ : ${document.subject}</label>
+								<label> Học Kỳ : ${document.semester}</label>
 							</div>
 							<div>
 								<label>Số tín chỉ :  ${document.courseCredit}</label>
 							</div> 
 							<div>
-								<label>	 Môn học : ${document.nameTeacher}</label>
+								<label>	 Môn học : ${document.subject} </label>
 							</div>
 							<div>
 								<label>Độ khó :  7/10</label>
 							</div>
 							<div>
-								<label>Chuyên ngành :  ${document.semester}</label>
+								<label>Chuyên ngành :  ${document.category} </label>
 							</div>
 
 							

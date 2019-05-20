@@ -9,7 +9,7 @@
 
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="img/T.PNG" type="image/x-icon">
+<link rel="shortcut icon" href="img/C.PNG" type="image/x-icon">
 
 
 <!-- Font awesome -->

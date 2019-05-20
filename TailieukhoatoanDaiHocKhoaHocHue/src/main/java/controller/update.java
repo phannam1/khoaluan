@@ -60,7 +60,7 @@ public class update extends HttpServlet {
 				}else {
 					SimpleDateFormat dt = new SimpleDateFormat("yyyy_mm_dd_hh_mm_ss"); 
 					String Link =dt.format(new Date()) + item.getName();
-					item.write(new File("F:\\New folder (2)\\khoaluan\\TailieukhoatoanDaiHocKhoaHocHue\\src\\main\\webapp\\img\\avatar\\"+Link));					
+					item.write(new File("D:\\New folder (2)\\khoaluan\\TailieukhoatoanDaiHocKhoaHocHue\\src\\main\\webapp\\img\\avatar\\"+Link));					
 					linkData = "img/avatar/"+Link;	
 				}
 					
@@ -86,7 +86,7 @@ public class update extends HttpServlet {
 				String phone = (String ) params.get("phone");
 				String email = (String ) params.get("email");
 				if (!question.equals("") && answer.equals("")) {
-					String message = "Báº¡n pháº£i nháº­p cÃ¢u tráº£ lá»�i báº£o máº­t";
+					String message = "Bạn phải nhập câu trả lời bí mật";
 					request.setAttribute("error", message);
 					request.getRequestDispatcher("/Infor").forward(request, response);
 				} else {
